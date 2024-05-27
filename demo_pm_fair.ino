@@ -70,12 +70,13 @@ void setup() {
 void loop() {
   int startButtonState = digitalRead(buttonPinStart);
   int resetButtonState = digitalRead(buttonPinReset);
-  
-  if (!sdCardInserted) {
-    setup();
-  }
 
   if (startButtonState == HIGH && scanning == 0 && reseting == 0) {
+    if (!sdCardInserted) {
+      setup();
+      return;
+    }
+    
     scanning = 1;
     setup();
     
