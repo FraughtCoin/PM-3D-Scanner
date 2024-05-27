@@ -23,7 +23,7 @@ int reseting = 0;
 
 int verticalTurns = 0;
 int maxHeight = 10; // 10cm
-int steps = 200; // steps for a full rotation
+int rotateSteps = 200; // steps for a full rotation
 int verticalSteps = 10 * 200 * 2;
 // 200 steps for a full rotation, the rod will advance 0.5mm
 // so, to go up 1 cm, we will need 10mm * 200 steps / 0.5mm
@@ -117,7 +117,7 @@ void writeToSD(double distance) {
   file = SD.open(currentFile, FILE_WRITE);
 
   if (file) {
-    file.print(senseDistance);
+    file.print(distance);
     file.println();
     
     file.close();
